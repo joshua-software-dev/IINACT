@@ -9,7 +9,7 @@ using RainbowMage.OverlayPlugin.WebSocket;
 
 namespace RainbowMage.OverlayPlugin.EventSources
 {
-    partial class MiniParseEventSource : EventSourceBase
+    public partial class MiniParseEventSource : EventSourceBase
     {
         private List<string> importedLogs = new List<string>();
 
@@ -216,7 +216,7 @@ namespace RainbowMage.OverlayPlugin.EventSources
             }
         }
 
-        internal JObject CreateCombatData()
+        public JObject CreateCombatData()
         {
             if (!CheckIsActReady())
             {

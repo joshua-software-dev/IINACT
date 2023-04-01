@@ -9,6 +9,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Utility;
 using IINACT.Windows;
+using RainbowMage.OverlayPlugin.EventSources;
 
 namespace IINACT;
 
@@ -128,6 +129,7 @@ public sealed class Plugin : IDalamudPlugin
             var serverController = container.Resolve<RainbowMage.OverlayPlugin.WebSocket.ServerController>();
             MainWindow.Server = serverController;
             IpcProviders.Server = serverController;
+            IpcProviders.EventSource = (MiniParseEventSource?) registry.EventSources.FirstOrDefault(it => it is MiniParseEventSource);
             ConfigWindow.OverlayPluginConfig = container.Resolve<RainbowMage.OverlayPlugin.IPluginConfig>();
         });
 
